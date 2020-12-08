@@ -32,9 +32,13 @@ npm install
 ```
 
 ### 3 - Creando la Base de datos
+
 **3.1 -** Abrir XAMPP e iniciar los servicios de Apache y MySQL.
+
 **3.2 -** Abrir el panel de control del servicio MySQL presionando el botón **Admin** ó bien usar el siguiente link: **http://localhost/phpmyadmin/**
+
 **3.3 -** Para genererar la bases de datos y sus objetos, ir al panel de control de la base de datos y ejecutar y/o importar los siguientes archivos ***.sql**:
+
   - Ir al directorio /scriptsDB:
     - **delilarestoDB.sql:**
       - Crea la Base de datos **delilahresto**.
