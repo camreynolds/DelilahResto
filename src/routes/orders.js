@@ -39,8 +39,8 @@ router.post('/', authenticateJWT,async (req,res)=>{
 });
 router.put('/:id',authenticateJWT,adminRoleValidation, async(req,res)=>{
     try {
-        await updateOrder( req.body,req.params.orderId);
-        res.status(200).json({OK: `Se modificó el estado correctamente del pedido N°:${req.params.orderId}`});
+        const result =await updateOrder( req.body,req.params.id);
+        res.status(result.code).json({resultado:result.message});
         } catch (error) {
             res.status(400).json({Message: error.sqlMessage });
         }  

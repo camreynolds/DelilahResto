@@ -2,7 +2,7 @@ const pool = require('../db/database');
 const moment= require('moment');
 const errors=require('../exception');
 
-const updOrder = 'UPDATE ORDERS SET ? WHERE orderid= ?';
+const updOrder = 'UPDATE ORDERS SET ? WHERE orderid= ? and STATUSINFO not in(5,6)';
 const queryGetAllOrders = `SELECT os.name status,DATE_FORMAT(o.orderdate,'%h:%i %p') hora,concat('#',o.orderid) orderid,od.description,o.amount, us.fullname,us.address 
 FROM orders o, orderstatus os, users us,(select orderid, GROUP_CONCAT(od.quantity,'#',p.name) description
                                          from orderdetails od, products p 
@@ -13,7 +13,7 @@ and o.clientinfo=us.username
 and o.orderid=od.orderid
 `;
 
-const delOrder=`DELETE FROM ORDERS WHERE orderid=?`;
+const delOrder=`UPDATE ORDERS SET STATUSINFO=5 WHERE orderid=? and STATUSINFO not in(5,6)`;
 
 const getDateTime = () => {
     const fecha = new Date;
@@ -57,15 +57,16 @@ const createOrder = async (orders,username) => {
 
 const updateOrder = async (data, orderid) => {
     try {
-        await pool.poolConnection.query("START TRANSACTION");
 
         const result = await pool.poolConnection.query(updOrder, [data, orderid]);
+        if (result.affectedRows===0) {
+            return errors(404,'UPD','No se modificó el pedido','');
+        }
 
-        await pool.poolConnection.query("COMMIT");
-        return result;
+        return errors(200,'UPD',`Se modificó el estado del pedido número: ${orderid} `,'');;
     } catch (error) {
         console.log(error);
-        await pool.poolConnection.query("ROLLBACK");
+
         throw error;
     }
 };
@@ -137,9 +138,7 @@ const getAllOrders = async () => {
 const deleteOrder= async(orderid)=>{
     try {
         const result= await pool.poolConnection.query(delOrder, orderid);
-        console.log(result);
         if (result.affectedRows===0) return errors(404,'DEL','No se eliminó el pedido','');
-        //errors
         return errors(200,'DEL','Se eliminó el pedido correctamente','');
     } catch (error) {
         console.log(error);
