@@ -61,5 +61,19 @@ A continuación, se muestra un breve resumen de todos los endpoints disponibles.
 Testear los endpoints provistos desde postman para poder hacer uso de la API y base de datos generadas
 
 ## Recursos y tecnologías utilizadas
+* Node
+* Postman
+* XAMPP
+* Swagger
+* NPM PACKAGES:
+  * Express
+  * Nodemon
+  * Jsonwebtoken
+  * Dotenv
+  * Mysql
+  * Moment
+  * Bcryptjs
+  * Cors
 
 ## Autor
+**Díaz Sebastian** - [Github seba365](https://github.com/seba365).
