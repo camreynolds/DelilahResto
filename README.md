@@ -35,7 +35,7 @@ npm install
 **3) Creando base de datos**
 * Abrir XAMPP e iniciar los servicios de **Apache** y **MYSQL**
 * Para abrir MYSQL presionar el botón **Admin** ó acceder a **[phpmyadmin](http://localhost/phpmyadmin/)**.
-* Generar la base de datos **delilahresto**, dentro del panle de control de la base de datos ejecutar y/o importar el archivo que se encuentra en: **/scriptsDB/deliahrestoDB.sql
+* Generar la base de datos **delilahresto**, dentro del panle de control de la base de datos ejecutar y/o importar el archivo que se encuentra en: **/scriptsDB/deliahrestoDB.sql**
 
 **4) Iniciar el servidor**
 
@@ -51,8 +51,6 @@ node ./src/index.js
 ## Documentación de la API
 
 Abrir el archivo **spec.yml* y copiar su contenido en [Swagger](https://editor.swagger.io/) o importar el mismo desde las opciones.
-
-A continuación, se muestra un breve resumen de todos los endpoints disponibles.
 
 **URL: http://localhost:4001/**
 
