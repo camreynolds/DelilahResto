@@ -52,9 +52,27 @@ node ./src/index.js
 
 Abrir el archivo **spec.yml** y copiar su contenido en **[Swagger](https://editor.swagger.io/)** o importar el mismo desde las opciones.
 
+A continuación, se muestra un breve resumen de todos los endpoints disponibles.
+
 **URL: http://localhost:4001/**
 
-
+| Métod | Endpoints | Descripción | Rol |
+| ---- | ---- | ---- | ---- |
+| POST | /auth/login | Autenticación al sistema | all |
+| GET | /users/all | Obtiene información de todos los usuarios | **admin** |
+| GET | /users | Obtiene información del usuario que inició la sesión | all |
+| POST | /users | Crea un nuevo usuario | all |
+| PUT | /users | Modifica la información del usuario que inició la sesión | all |
+| GET | /products | Obtiene información de todos los productos | all |
+| GET | /products/{id} | Obtiene información de un producto | all |
+| PUT | /products/{id} | Modifica la información del producto | **admin** |
+| DELETE | /products/{id} | Elimina un producto | **admin** |
+| POST | /products | Crea un nuevo producto | **admin** |
+| GET | /orders/all | Obtiene información de todos los pedidos | **admin** |
+| GET | /orders | Obtiene información de los pedidos del usuario que inició sesión | all |
+| PUT | /orders/{id} | Modifica el estado de un pedido | **admin** |
+| DELETE | /orders/{id} | Cancela el pedido | **admin** |
+| POST | /orders | Crea un nuevo pedido del usuario que inició sesión | all |
 ## Testing
 Testear los endpoints provistos desde postman para poder hacer uso de la API y base de datos generadas
 
