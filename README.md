@@ -50,7 +50,7 @@ node ./src/index.js
 
 ## Documentación de la API
 
-Abrir el archivo **spec.yml* y copiar su contenido en [Swagger](https://editor.swagger.io/) o importar el mismo desde las opciones.
+Abrir el archivo **spec.yml** y copiar su contenido en **[Swagger](https://editor.swagger.io/)** o importar el mismo desde las opciones.
 
 **URL: http://localhost:4001/**
 
