@@ -25,7 +25,7 @@ router.get('/', authenticateJWT, async (req, res) => {
 });
 router.get('/:id', authenticateJWT, async (req, res) => {
     try {
-        const result = await getProductById(req.params.prodId);
+        const result = await getProductById(req.params.id);
         res.status(200).json(result);
     } catch (error) {
         res.status(400).json({
@@ -57,7 +57,7 @@ router.post('/', authenticateJWT, adminRoleValidation, async (req, res) => {
 });
 router.put('/:id', authenticateJWT, adminRoleValidation, async (req, res) => {
     try {
-        const productid = req.params.prodId;
+        const productid = req.params.id;
         const {
             name,
             photourl,
